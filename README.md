@@ -23,7 +23,7 @@ The goal of this project is to design and implement a robust relational database
 * Bridges conceptual modelling (ER design) with SQL implementation
 
 
------
+
 ### Core Functionalities (Current Scope)
 * **Sales & Billing:** Comprehensive management of transactions.
 * **Inventory Tracking:** Real-time stock monitoring and restock alerts.
@@ -33,7 +33,7 @@ The goal of this project is to design and implement a robust relational database
 * **HR:** Employee hierarchy and accountability tracking.
 
 
------
+
 ### Tech Stack
 * **Database:** MySQL (Relational Database)
 * **Modelling:** ER Modelling (Crow’s Foot Notation)
