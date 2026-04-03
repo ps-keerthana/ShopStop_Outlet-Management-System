@@ -1,0 +1,9 @@
+Query,Before (ms),After (ms),Rows Before,Rows After,Rows Reduced %
+Q1: Pending orders,0.6931,0.6863,15,5,66.7
+Q2: Pending orders with supplier,0.7136,0.6881,15,5,66.7
+Q3: Pending orders item count,0.8405,0.8531,15,5,66.7
+Q4: Platinum members,0.5622,0.6907,20,5,75.0
+Q5: Platinum member spending,0.6569,0.7123,20,5,75.0
+Q6: Gold members,0.7113,0.5463,20,7,65.0
+Q7: Sales in date range,0.7234,0.7072,20,7,65.0
+Q8: Sales with member in date range,0.7666,0.8258,20,7,65.0

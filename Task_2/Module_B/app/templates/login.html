@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>ShopStop</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;min-height:100vh;background:#050810;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.bg{position:fixed;inset:0;z-index:0}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.5}
+.orb1{width:600px;height:600px;background:#4f46e5;top:-200px;left:-200px}
+.orb2{width:500px;height:500px;background:#7c3aed;bottom:-150px;right:-100px}
+.orb3{width:300px;height:300px;background:#0ea5e9;top:50%;left:50%;transform:translate(-50%,-50%)}
+.grid-bg{position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:60px 60px;z-index:0}
+.wrap{position:relative;z-index:1;display:flex;width:920px;min-height:580px;border-radius:28px;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,0.08),0 40px 100px rgba(0,0,0,0.6)}
+.left{flex:1;padding:56px 48px;display:flex;flex-direction:column;justify-content:space-between;background:rgba(255,255,255,0.03);backdrop-filter:blur(20px);border-right:1px solid rgba(255,255,255,0.07)}
+.logo-row{display:flex;align-items:center;gap:14px}
+.logo-box{width:48px;height:48px;background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 8px 24px rgba(99,102,241,0.4)}
+.logo-name{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#fff;letter-spacing:-0.5px}
+.left-mid h2{font-family:'Syne',sans-serif;font-size:36px;font-weight:800;color:#fff;line-height:1.2;letter-spacing:-1px;margin-bottom:16px}
+.left-mid h2 span{background:linear-gradient(135deg,#818cf8,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.left-mid p{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;max-width:340px}
+.feats{display:flex;flex-direction:column;gap:12px}
+.feat{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06)}
+.feat-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.feat-text{font-size:13px;color:rgba(255,255,255,0.7)}
+.right{width:420px;padding:56px 48px;background:rgba(10,12,25,0.8);backdrop-filter:blur(20px);display:flex;flex-direction:column;justify-content:center}
+.right h3{font-family:'Syne',sans-serif;font-size:28px;font-weight:700;color:#fff;letter-spacing:-0.5px;margin-bottom:6px}
+.right p{font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:40px}
+.field{margin-bottom:20px}
+.field label{display:block;font-size:11px;font-weight:500;color:rgba(255,255,255,0.4);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px}
+.field input{width:100%;padding:14px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;font-size:14px;font-family:'Inter',sans-serif;color:#fff;outline:none;transition:all 0.2s}
+.field input:focus{border-color:rgba(99,102,241,0.6);background:rgba(99,102,241,0.08);box-shadow:0 0 0 4px rgba(99,102,241,0.12)}
+.field input::placeholder{color:rgba(255,255,255,0.2)}
+.btn-login{width:100%;padding:15px;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:600;font-family:'Syne',sans-serif;cursor:pointer;transition:all 0.2s;letter-spacing:0.2px;box-shadow:0 8px 24px rgba(99,102,241,0.35),inset 0 1px 0 rgba(255,255,255,0.15)}
+.btn-login:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(99,102,241,0.5)}
+.err{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:10px;padding:12px 16px;font-size:13px;color:#f87171;margin-bottom:18px;display:none}
+.hint{margin-top:28px;text-align:center;font-size:12px;color:rgba(255,255,255,0.2)}
+.hint strong{color:rgba(139,92,246,0.8)}
+</style>
+</head>
+<body>
+<div class="bg">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+</div>
+<div class="grid-bg"></div>
+<div class="wrap">
+  <div class="left">
+    <div class="logo-row">
+      <div class="logo-box">&#128717;</div>
+      <span class="logo-name">ShopStop</span>
+    </div>
+    <div class="left-mid">
+      <h2>The <span>smarter</span> way to run your outlet</h2>
+      <p>One integrated system for stock, sales, suppliers, members and staff — built for modern campus outlets.</p>
+    </div>
+    <div class="feats">
+      <div class="feat"><div class="feat-icon" style="background:rgba(99,102,241,0.2)">&#128230;</div><span class="feat-text">Real-time inventory and low stock alerts</span></div>
+      <div class="feat"><div class="feat-icon" style="background:rgba(16,185,129,0.2)">&#128101;</div><span class="feat-text">Member loyalty points and tier tracking</span></div>
+      <div class="feat"><div class="feat-icon" style="background:rgba(245,158,11,0.2)">&#128274;</div><span class="feat-text">Secure RBAC — Admin and User roles</span></div>
+      <div class="feat"><div class="feat-icon" style="background:rgba(239,68,68,0.2)">&#128666;</div><span class="feat-text">Supplier order and procurement management</span></div>
+    </div>
+  </div>
+  <div class="right">
+    <h3>Welcome back</h3>
+    <p>Sign in to your ShopStop account</p>
+    <div class="err" id="err"></div>
+    <div class="field"><label>Username</label><input id="u" type="text" placeholder="Enter username" autocomplete="username"/></div>
+    <div class="field"><label>Password</label><input id="p" type="password" placeholder="Enter password" autocomplete="current-password"/></div>
+    <button class="btn-login" onclick="doLogin()">Sign In &#8594;</button>
+    <div class="hint">CS 432 Databases &nbsp;&#183;&nbsp; <strong>Group 15</strong> &nbsp;&#183;&nbsp; IITGN</div>
+  </div>
+</div>
+<script>
+document.addEventListener('keydown',e=>{if(e.key==='Enter')doLogin()});
+async function doLogin(){
+  const u=document.getElementById('u').value.trim(),p=document.getElementById('p').value,err=document.getElementById('err');
+  err.style.display='none';
+  if(!u||!p){err.textContent='Please enter username and password';err.style.display='block';return;}
+  try{
+    const r=await fetch('/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({user:u,password:p})});
+    const d=await r.json();
+    if(r.ok){sessionStorage.setItem('token',d.session_token);sessionStorage.setItem('username',u);window.location.href='/dashboard';}
+    else{err.textContent=d.error||'Login failed';err.style.display='block';}
+  }catch(e){err.textContent='Server unreachable';err.style.display='block';}
+}
+</script>
+
+<script>
+(function(){if(localStorage.getItem('shopstop-theme')==='light'){document.body.style.background='linear-gradient(135deg,#e8f0fe,#f3e8ff,#fce8f3)';}})();
+</script>
+</body>
+</html>
