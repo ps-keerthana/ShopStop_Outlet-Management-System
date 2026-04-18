@@ -2,8 +2,10 @@ import json
 import os
 import threading
 from datetime import datetime
+import pytz
 
 WAL_PATH = os.path.join(os.path.dirname(__file__), '..', 'data', 'wal.log')
+
 
 class WALLogger:
     """
@@ -19,7 +21,10 @@ class WALLogger:
         os.makedirs(os.path.dirname(self.path), exist_ok=True)
 
     def _append(self, entry: dict):
-        entry['timestamp'] = datetime.utcnow().isoformat()
+        # ✅ Store IST time directly
+        ist = pytz.timezone('Asia/Kolkata')
+        entry['timestamp'] = datetime.now(ist).isoformat()
+
         with self._lock:
             with open(self.path, 'a') as f:
                 f.write(json.dumps(entry) + '\n')
