@@ -187,3 +187,7 @@
 [2026-04-03 00:05:23] user=rajesh role=user action=LOGIN table=- id=- status=SUCCESS
 [2026-04-03 00:06:01] user=rajesh role=user action=ONLINE_CHECKOUT table=Sale id=SAL027 status=SUCCESS
 [2026-04-03 00:06:25] user=rajesh role=user action=FORBIDDEN table=Member id=MEM009 status=DENIED
+[2026-04-14 00:00:28] user=admin role=admin action=LOGIN table=- id=- status=SUCCESS
+[2026-04-14 00:01:16] user=admin role=admin action=LOGOUT table=- id=- status=SUCCESS
+[2026-04-14 00:01:34] user=rajesh role=user action=LOGIN table=- id=- status=SUCCESS
+[2026-04-14 00:02:04] user=rajesh role=user action=LOGOUT table=- id=- status=SUCCESS
