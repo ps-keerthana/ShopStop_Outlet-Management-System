@@ -1,0 +1,16 @@
+Endpoint,Before (ms),After (ms),Improvement %
+all members,5.878,4.1534,29.3
+member by ID,4.3081,4.4515,-3.3
+all products,5.7242,5.3156,7.1
+product by ID,4.3779,3.5809,18.2
+all sales,4.8188,4.3001,10.8
+sale by ID,4.4865,4.3204,3.7
+all employees,5.3224,4.1047,22.9
+salary summary,5.5632,5.3705,3.5
+all orders,4.9795,4.3676,12.3
+order by ID,5.1053,3.8691,24.2
+orders by status [idx_order_status],4.613,3.8808,15.9
+members by type [idx_member_type],4.6669,4.1403,11.3
+Gold members [idx_member_type],4.5041,4.674,-3.8
+sales by date [idx_sale_date],4.4097,3.8623,12.4
+products by category [idx_product_category],3.5442,4.4735,-26.2
