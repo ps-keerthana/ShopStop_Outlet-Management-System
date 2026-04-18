@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>ShopStop — CS 432 Databases · IIT Gandhinagar</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&family=Fraunces:ital,wght@0,300;0,600;0,700;1,300;1,600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg:#f7f5f2;--surface:#ffffff;--surface2:#f0ede8;--border:#e8e4de;
+    --text:#1a1714;--muted:#7a7469;--accent:#2c5f8a;--accent2:#d4874e;
+    --accent3:#4a8c6f;--accent4:#8b4a8c;
+    --shadow:0 2px 20px rgba(26,23,20,0.08);--shadow-lg:0 8px 40px rgba(26,23,20,0.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(247,245,242,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 32px;height:56px;display:flex;align-items:center;justify-content:space-between}
+  .nav-brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:var(--text);text-decoration:none}
+  .nav-brand .dot{color:var(--accent2)}
+  .nav-links{display:flex;gap:4px}
+  .nav-links a{padding:6px 14px;border-radius:8px;font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;transition:all 0.15s}
+  .nav-links a:hover{background:var(--surface2);color:var(--text)}
+  .hero{padding:120px 32px 80px;max-width:900px;margin:0 auto;text-align:center}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);padding:6px 16px;border-radius:40px;font-size:12px;font-weight:500;color:var(--muted);margin-bottom:28px;box-shadow:var(--shadow)}
+  .hero-badge span{width:6px;height:6px;background:var(--accent3);border-radius:50%;display:inline-block}
+  .hero h1{font-family:'Fraunces',serif;font-size:clamp(42px,6vw,72px);font-weight:700;line-height:1.1;letter-spacing:-1.5px;color:var(--text);margin-bottom:20px}
+  .hero h1 em{font-style:italic;color:var(--accent)}
+  .hero-sub{font-size:17px;color:var(--muted);max-width:560px;margin:0 auto 40px;line-height:1.7}
+  .hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn{padding:11px 24px;border-radius:10px;font-size:14px;font-weight:600;text-decoration:none;transition:all 0.18s;cursor:pointer;border:none;display:inline-flex;align-items:center;gap:8px}
+  .btn-primary{background:var(--text);color:var(--bg)}
+  .btn-primary:hover{background:#2c2926;transform:translateY(-1px);box-shadow:var(--shadow)}
+  .btn-secondary{background:var(--surface);color:var(--text);border:1px solid var(--border)}
+  .btn-secondary:hover{background:var(--surface2);transform:translateY(-1px)}
+  .journey{padding:0 32px 80px;max-width:1000px;margin:0 auto}
+  .section-title{text-align:center;margin-bottom:48px}
+  .section-title h2{font-family:'Fraunces',serif;font-size:32px;font-weight:600;margin-bottom:8px}
+  .section-title p{color:var(--muted);font-size:15px}
+  .progress-track{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-bottom:48px}
+  .progress-track::before{content:'';position:absolute;top:28px;left:12.5%;right:12.5%;height:2px;background:var(--border);z-index:0}
+  .progress-step{display:flex;flex-direction:column;align-items:center;gap:12px;position:relative;z-index:1}
+  .step-circle{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:20px;font-weight:700;background:var(--surface);border:2px solid var(--border);box-shadow:var(--shadow)}
+  .step-circle.t1{border-color:var(--accent);color:var(--accent);background:#edf2f7}
+  .step-circle.t2{border-color:var(--accent2);color:var(--accent2);background:#fef3ec}
+  .step-circle.t3{border-color:var(--accent3);color:var(--accent3);background:#ecf5f0}
+  .step-circle.t4{border-color:var(--accent4);color:var(--accent4);background:#f5ecf5}
+  .step-label{font-size:12px;font-weight:600;color:var(--muted);text-align:center}
+  .step-topic{font-size:11px;color:var(--muted);text-align:center;max-width:100px;line-height:1.4}
+  .task-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;margin-bottom:24px;box-shadow:var(--shadow);overflow:hidden;transition:box-shadow 0.2s}
+  .task-card:hover{box-shadow:var(--shadow-lg)}
+  .task-header{padding:28px 32px 20px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;border-bottom:1px solid var(--border)}
+  .task-header-left{flex:1}
+  .task-num{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:var(--muted);letter-spacing:1px;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+  .dot-t1,.dot-t2,.dot-t3,.dot-t4{width:8px;height:8px;border-radius:50%;display:inline-block}
+  .dot-t1{background:var(--accent)}.dot-t2{background:var(--accent2)}.dot-t3{background:var(--accent3)}.dot-t4{background:var(--accent4)}
+  .task-header h3{font-family:'Fraunces',serif;font-size:22px;font-weight:600;margin-bottom:6px}
+  .task-desc{font-size:14px;color:var(--muted);line-height:1.6}
+  .task-badge{padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;white-space:nowrap;flex-shrink:0;letter-spacing:0.3px}
+  .badge-t1{background:#edf2f7;color:var(--accent);border:1px solid #c3d9ec}
+  .badge-t2{background:#fef3ec;color:var(--accent2);border:1px solid #f5cca8}
+  .badge-t3{background:#ecf5f0;color:var(--accent3);border:1px solid #a8d4bc}
+  .badge-t4{background:#f5ecf5;color:var(--accent4);border:1px solid #d4a8d4}
+  .task-body{padding:24px 32px}
+  .modules-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+  .modules-grid.single{grid-template-columns:1fr}
+  .module-block{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:18px}
+  .module-block h4{font-size:13px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px;color:var(--text)}
+  .feat-list{list-style:none}
+  .feat-list li{font-size:13px;color:var(--muted);padding:4px 0;display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+  .feat-list li::before{content:'–';color:var(--border);flex-shrink:0}
+  .tech-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .tag{background:#edf2f7;color:var(--accent);border:1px solid #d0dde8;padding:3px 10px;border-radius:6px;font-family:'DM Mono',monospace;font-size:11px;font-weight:500}
+  .tag.green{background:#ecf5f0;color:var(--accent3);border-color:#b5d9c5}
+  .tag.orange{background:#fef3ec;color:var(--accent2);border-color:#f0c49a}
+  .tag.purple{background:#f5ecf5;color:var(--accent4);border-color:#cfaacf}
+  .acid-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+  .acid-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}
+  .acid-letter{font-family:'Fraunces',serif;font-size:24px;font-weight:700;color:var(--accent3);margin-bottom:4px}
+  .acid-name{font-size:11px;font-weight:700;color:var(--text)}
+  .acid-how{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.4}
+  .shard-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+  .shard-node{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+  .shard-num{font-family:'Fraunces',serif;font-size:28px;font-weight:700;color:var(--accent4);line-height:1}
+  .shard-port{font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);margin-top:4px}
+  .shard-count{font-size:12px;color:var(--text);margin-top:6px;font-weight:600}
+  .shard-formula{background:#f0ede8;border:1px solid var(--border);border-radius:10px;padding:14px 20px;font-family:'DM Mono',monospace;font-size:13px;color:var(--text);text-align:center;margin:16px 0 4px}
+  #demo{padding:0 32px 80px;max-width:1000px;margin:0 auto}
+  .demo-note{background:#fffbf0;border:1px solid #f0d9a0;border-radius:12px;padding:16px 20px;font-size:13px;color:#7a6030;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start}
+  .demo-note strong{color:#5a4820}
+  .tabs{display:flex;gap:4px;margin-bottom:16px;flex-wrap:wrap}
+  .tab-btn{padding:8px 18px;border-radius:8px;border:1px solid var(--border);background:var(--surface);font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;transition:all 0.15s;font-family:'DM Sans',sans-serif}
+  .tab-btn.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+  .tab-btn:hover:not(.active){background:var(--surface2)}
+  .tab-pane{display:none}.tab-pane.active{display:block}
+  .mock-window{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-lg)}
+  .mock-toolbar{background:var(--surface2);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;gap:8px}
+  .mock-dot{width:12px;height:12px;border-radius:50%}
+  .mock-bar{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:5px 12px;font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);margin-left:8px}
+  .login-mock{display:flex;height:480px}
+  .login-side{width:40%;background:linear-gradient(135deg,#1a1714 0%,#2c2926 100%);padding:40px 32px;display:flex;flex-direction:column;justify-content:flex-end}
+  .login-side-brand{font-family:'Fraunces',serif;font-size:28px;font-weight:700;color:white;line-height:1.2;margin-bottom:8px}
+  .login-side-sub{font-size:12px;color:rgba(255,255,255,0.4)}
+  .login-main{flex:1;padding:40px;display:flex;flex-direction:column;justify-content:center}
+  .login-main h3{font-family:'Fraunces',serif;font-size:22px;margin-bottom:4px}
+  .login-main p{font-size:13px;color:var(--muted);margin-bottom:24px}
+  .form-group{margin-bottom:14px}
+  .form-label{font-size:12px;font-weight:600;color:var(--muted);margin-bottom:5px;display:block}
+  .form-input{width:100%;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--bg);font-size:13px;color:var(--text);font-family:'DM Sans',sans-serif;outline:none}
+  .mock-btn{width:100%;padding:11px;background:var(--text);color:var(--bg);border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:8px}
+  .creds-hint{margin-top:16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px}
+  .creds-hint p{font-size:11px;color:var(--muted);margin-bottom:6px;font-weight:600}
+  .cred-row{display:flex;gap:8px;margin-bottom:3px;align-items:center}
+  .cred-row code{background:var(--surface2);padding:2px 7px;border-radius:4px;font-family:'DM Mono',monospace;font-size:11px;color:var(--text)}
+  .cred-role{font-size:11px;color:var(--muted)}
+  .dash-mock{display:flex;height:520px}
+  .dash-sidebar{width:200px;background:#0d1117;border-right:1px solid #1e2636;padding:16px 12px;display:flex;flex-direction:column;flex-shrink:0}
+  .dash-brand{padding:8px 10px 16px;border-bottom:1px solid #1e2636;margin-bottom:12px}
+  .dash-brand-icon{width:32px;height:32px;background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:8px;margin-bottom:6px;display:flex;align-items:center;justify-content:center;font-size:16px}
+  .dash-brand-name{font-size:13px;font-weight:700;color:#e2e8f0}
+  .dash-nav-item{padding:8px 12px;border-radius:8px;margin-bottom:2px;font-size:12px;color:#64748b;cursor:pointer;display:flex;align-items:center;gap:8px}
+  .dash-nav-item.active{background:rgba(99,102,241,0.12);color:#818cf8;font-weight:600}
+  .dash-main{flex:1;background:#050810;padding:16px;overflow:hidden}
+  .dash-topbar{color:#e2e8f0;font-size:14px;font-weight:700;margin-bottom:14px}
+  .dash-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+  .dash-stat{background:#0d1117;border:1px solid #1e2636;border-radius:12px;padding:14px;text-align:center}
+  .dash-stat-val{font-size:20px;font-weight:800;font-family:'DM Mono',monospace}
+  .dash-stat-label{font-size:10px;color:#64748b;margin-top:2px}
+  .ds1{color:#818cf8}.ds2{color:#34d399}.ds3{color:#fbbf24}.ds4{color:#f87171}
+  .dash-table-wrap{background:#0d1117;border:1px solid #1e2636;border-radius:12px;overflow:hidden}
+  .dash-table-head{padding:10px 14px;border-bottom:1px solid #1e2636;font-size:12px;font-weight:700;color:#e2e8f0}
+  .dash-table{width:100%;border-collapse:collapse;font-size:11px}
+  .dash-table th{padding:8px 14px;color:#64748b;text-align:left;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:0.5px;background:#0d1117}
+  .dash-table td{padding:8px 14px;color:#94a3b8;border-top:1px solid #1e2636}
+  .dash-pid{font-family:'DM Mono',monospace;font-size:10px;background:rgba(99,102,241,0.12);color:#818cf8;padding:2px 6px;border-radius:4px}
+  .shard-mock-body{padding:32px}
+  .shard-mock-body h3{font-family:'Fraunces',serif;font-size:18px;margin-bottom:6px}
+  .shard-mock-body p{font-size:13px;color:var(--muted);margin-bottom:24px}
+  .shard-visual{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;align-items:center;gap:0;margin-bottom:24px}
+  .sv-box{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+  .sv-arrow{text-align:center;font-size:20px;color:var(--muted);padding:0 8px}
+  .sv-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px}
+  .sv-val{font-family:'DM Mono',monospace;font-size:13px;font-weight:600}
+  .sv-port{font-size:11px;color:var(--muted);margin-top:3px}
+  .distrib-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .distrib-label{font-size:12px;width:60px;color:var(--muted);font-weight:600}
+  .distrib-fill{height:8px;border-radius:4px;flex:1;background:var(--border);position:relative}
+  .distrib-bar-inner{height:100%;border-radius:4px}
+  .distrib-count{font-size:12px;color:var(--muted);font-family:'DM Mono',monospace;width:60px;text-align:right}
+  #schema{padding:0 32px 80px;max-width:1000px;margin:0 auto}
+  .schema-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .schema-table{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+  .schema-table-head{padding:14px 16px;border-bottom:1px solid var(--border);font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px}
+  .schema-fields{padding:10px 16px 14px}
+  .schema-field{display:flex;align-items:center;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border);font-size:12px}
+  .schema-field:last-child{border-bottom:none}
+  .schema-field-name{font-family:'DM Mono',monospace;font-weight:500;color:var(--text)}
+  .schema-field-key{font-size:10px;padding:2px 6px;border-radius:4px;font-weight:700}
+  .key-pk{background:#edf2f7;color:var(--accent)}.key-fk{background:#fef3ec;color:var(--accent2)}.key-idx{background:#ecf5f0;color:var(--accent3)}
+  footer{background:var(--text);color:rgba(247,245,242,0.7);padding:48px 32px 32px;text-align:center}
+  footer .f-brand{font-family:'Fraunces',serif;font-size:24px;font-weight:700;color:var(--bg);margin-bottom:8px}
+  footer p{font-size:13px;margin-bottom:24px}
+  footer .f-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
+  footer .f-links a{color:rgba(247,245,242,0.7);text-decoration:none;font-size:13px;font-weight:500;transition:color 0.15s}
+  footer .f-links a:hover{color:var(--bg)}
+  footer .f-copy{font-size:12px;border-top:1px solid rgba(247,245,242,0.1);padding-top:20px}
+  .section-divider{border:none;border-top:1px solid var(--border);margin:0 32px 80px}
+  @media(max-width:700px){
+    .modules-grid{grid-template-columns:1fr}
+    .schema-grid{grid-template-columns:1fr 1fr}
+    .acid-grid{grid-template-columns:1fr 1fr}
+    .shard-grid{grid-template-columns:1fr}
+    .progress-track{grid-template-columns:1fr 1fr;gap:20px}
+    .progress-track::before{display:none}
+    .login-side{display:none}
+    .shard-visual{grid-template-columns:1fr 1fr}
+    .sv-arrow{display:none}
+    .dash-sidebar{width:140px}
+    .dash-stats{grid-template-columns:1fr 1fr}
+    nav{padding:0 16px}
+    .hero,.journey,#demo,#schema,.tasks{padding-left:20px;padding-right:20px}
+    .task-header{flex-direction:column;padding:20px}
+    .task-body{padding:20px}
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-brand" href="#">ShopStop<span class="dot">.</span></a>
+  <div class="nav-links">
+    <a href="#tasks">Tasks</a>
+    <a href="#demo">Demo</a>
+    <a href="#schema">Schema</a>
+    <a href="https://github.com" target="_blank">GitHub ↗</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge"><span></span>CS 432 Databases · IIT Gandhinagar · 2026 · Group 15 — Nexus</div>
+  <h1>ShopStop <em>Outlet</em><br>Management System</h1>
+  <p class="hero-sub">A four-task journey from relational schema design to a fully distributed, horizontally sharded database system — built for a retail outlet end to end.</p>
+  <div class="hero-cta">
+    <a class="btn btn-primary" href="https://github.com" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12 24 5.37 18.63 0 12 0z"/></svg>
+      View on GitHub
+    </a>
+    <a class="btn btn-secondary" href="#demo">Explore Demo ↓</a>
+  </div>
+</section>
+
+<section class="journey" id="tasks">
+  <div class="section-title"><h2>The Build Journey</h2><p>Each task adds a new layer of database engineering on top of the last.</p></div>
+  <div class="progress-track">
+    <div class="progress-step"><div class="step-circle t1">1</div><div class="step-label">Task 1</div><div class="step-topic">Schema Design & ER Modelling</div></div>
+    <div class="progress-step"><div class="step-circle t2">2</div><div class="step-label">Task 2</div><div class="step-topic">B+ Tree Indexing & Flask API</div></div>
+    <div class="progress-step"><div class="step-circle t3">3</div><div class="step-label">Task 3</div><div class="step-topic">Transactions, WAL & ACID</div></div>
+    <div class="progress-step"><div class="step-circle t4">4</div><div class="step-label">Task 4</div><div class="step-topic">Horizontal Sharding</div></div>
+  </div>
+
+  <div class="tasks" style="padding:0;margin:0">
+
+    <div class="task-card">
+      <div class="task-header">
+        <div class="task-header-left">
+          <div class="task-num"><span class="dot-t1"></span>TASK 1 · ASSIGNMENT 1</div>
+          <h3>Schema Design & ER Modelling</h3>
+          <p class="task-desc">Designed the complete relational database from scratch — ER diagram, normalised schema, constraints, and sample data across 9 tables.</p>
+        </div>
+        <div class="task-badge badge-t1">MySQL · SQL</div>
+      </div>
+      <div class="task-body">
+        <div class="modules-grid single">
+          <div class="module-block">
+            <h4><span>🗄️</span> What was built</h4>
+            <ul class="feat-list">
+              <li>Full ER diagram with all entities, attributes, and relationships</li>
+              <li>Normalised MySQL schema: 9 tables, all primary/foreign keys, cascades</li>
+              <li>Business rule constraints: FinalAmount check, expiry after manufacture, positive prices</li>
+              <li>Hierarchical structures: self-referencing Employee manager chain, nested Categories</li>
+              <li>Sample data across all tables for realistic query testing</li>
+            </ul>
+            <div class="tech-tags"><span class="tag">MySQL 8.0</span><span class="tag">ER Modelling</span><span class="tag">Normalisation</span><span class="tag">Check Constraints</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="task-card">
+      <div class="task-header">
+        <div class="task-header-left">
+          <div class="task-num"><span class="dot-t2"></span>TASK 2 · ASSIGNMENT 2</div>
+          <h3>Indexing Engine & Web Application</h3>
+          <p class="task-desc">Built a B+ Tree index engine from scratch in Python, then a full Flask REST API with JWT auth and role-based access control on top of the MySQL database.</p>
+        </div>
+        <div class="task-badge badge-t2">Python · Flask · JWT</div>
+      </div>
+      <div class="task-body">
+        <div class="modules-grid">
+          <div class="module-block">
+            <h4><span>🌳</span> Module A — B+ Tree Engine</h4>
+            <ul class="feat-list">
+              <li>Insert, delete, exact search, range query, aggregations</li>
+              <li>Graphviz-rendered tree structure diagrams</li>
+              <li>Schema-validated Table class wrapping the B+ Tree</li>
+              <li>Multi-table DatabaseManager</li>
+              <li>Automated benchmarks vs O(n) brute-force baseline</li>
+            </ul>
+            <div class="tech-tags"><span class="tag">Python</span><span class="tag">B+ Tree</span><span class="tag orange">Graphviz</span><span class="tag orange">Jupyter</span></div>
+          </div>
+          <div class="module-block">
+            <h4><span>🌐</span> Module B — Flask REST API</h4>
+            <ul class="feat-list">
+              <li>JWT authentication (HS256) + bcrypt password hashing</li>
+              <li>Admin vs Regular User RBAC on all routes</li>
+              <li>Full CRUD for Members, Products, Sales, Employees, Orders</li>
+              <li>Member portfolio page & billing counter UI</li>
+              <li>Security audit log — every action recorded</li>
+              <li>SQL index benchmarking notebook</li>
+            </ul>
+            <div class="tech-tags"><span class="tag orange">Flask</span><span class="tag orange">PyJWT</span><span class="tag orange">bcrypt</span><span class="tag">REST API</span><span class="tag">RBAC</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="task-card">
+      <div class="task-header">
+        <div class="task-header-left">
+          <div class="task-num"><span class="dot-t3"></span>TASK 3 · ASSIGNMENT 3</div>
+          <h3>Transactions, WAL, and ACID</h3>
+          <p class="task-desc">Added full transaction support to the B+ Tree engine with Write-Ahead Logging and Two-Phase Locking. Verified all four ACID properties with a comprehensive test suite including Locust load tests.</p>
+        </div>
+        <div class="task-badge badge-t3">Transactions · 2PL · WAL</div>
+      </div>
+      <div class="task-body">
+        <div class="modules-grid">
+          <div class="module-block">
+            <h4><span>⚙️</span> Module A — Transaction Engine</h4>
+            <ul class="feat-list">
+              <li><strong>WALLogger</strong> — every operation appended to wal.log before B+ Tree modification</li>
+              <li><strong>LockManager</strong> — shared/exclusive table-level locks, 2-phase locking</li>
+              <li><strong>SnapshotManager</strong> — per-transaction snapshots for rollback</li>
+              <li><strong>TransactionManager</strong> — public API: begin, commit, rollback</li>
+              <li>Crash recovery by replaying WAL log</li>
+            </ul>
+            <div class="tech-tags"><span class="tag green">WAL</span><span class="tag green">2PL</span><span class="tag green">Snapshot</span><span class="tag green">Recovery</span></div>
+          </div>
+          <div class="module-block">
+            <h4><span>🧪</span> Module B — ACID Test Suite</h4>
+            <ul class="feat-list">
+              <li>acid_verification.py — targeted ACID property tests</li>
+              <li>concurrent_users.py — simultaneous API users</li>
+              <li>race_condition_test.py — competing writes isolation check</li>
+              <li>failure_simulation.py — mid-transaction crash + recovery</li>
+              <li>stress_test.py — high-volume throughput measurement</li>
+              <li>locustfile.py — Locust load test with HTML reports</li>
+            </ul>
+            <div class="tech-tags"><span class="tag green">Locust</span><span class="tag green">Concurrency</span><span class="tag green">Stress Test</span></div>
+          </div>
+        </div>
+        <div class="acid-grid">
+          <div class="acid-item"><div class="acid-letter">A</div><div class="acid-name">Atomicity</div><div class="acid-how">rollback() restores pre-transaction snapshots</div></div>
+          <div class="acid-item"><div class="acid-letter">C</div><div class="acid-name">Consistency</div><div class="acid-how">Schema validation rejects invalid records</div></div>
+          <div class="acid-item"><div class="acid-letter">I</div><div class="acid-name">Isolation</div><div class="acid-how">2PL blocks conflicting concurrent writes</div></div>
+          <div class="acid-item"><div class="acid-letter">D</div><div class="acid-name">Durability</div><div class="acid-how">WAL flushed to disk before B+ Tree modified</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="task-card">
+      <div class="task-header">
+        <div class="task-header-left">
+          <div class="task-num"><span class="dot-t4"></span>TASK 4 · ASSIGNMENT 4 · ✦ LATEST</div>
+          <h3>Horizontal Database Sharding</h3>
+          <p class="task-desc">Sharded Member, Sale, and SaleItem across 3 remote MySQL Docker nodes using MD5 hash-based routing. 6 automated tests verify routing correctness, co-location, and zero duplication.</p>
+        </div>
+        <div class="task-badge badge-t4">Sharding · Distributed DB</div>
+      </div>
+      <div class="task-body">
+        <div class="modules-grid">
+          <div class="module-block">
+            <h4><span>🔀</span> Shard Router</h4>
+            <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">Hash-based routing using MD5 on MemberID</p>
+            <div class="shard-formula">shard_id = int(MD5(member_id)[:8], 16) % 3</div>
+            <ul class="feat-list" style="margin-top:12px">
+              <li>MemberID as shard key — high cardinality, stable, query-aligned</li>
+              <li>Sale + SaleItem co-located with Member — no cross-shard joins</li>
+              <li>Graceful degradation: unreachable shard → <code>degraded: true</code></li>
+            </ul>
+            <div class="tech-tags"><span class="tag purple">MD5 Hashing</span><span class="tag purple">Co-location</span><span class="tag purple">Fan-out</span></div>
+          </div>
+          <div class="module-block">
+            <h4><span>✅</span> Verification Tests</h4>
+            <ul class="feat-list">
+              <li><strong>Test 1:</strong> Routing Logic — MEM001→shard1, MEM005→shard0, MEM012→shard2</li>
+              <li><strong>Test 2:</strong> Single-Shard Lookup — found on exactly 1 shard</li>
+              <li><strong>Test 3:</strong> Insert Routing — new member lands on correct shard</li>
+              <li><strong>Test 4:</strong> Range Query — 27 sales across all 3 shards, sorted</li>
+              <li><strong>Test 5:</strong> Data Distribution — all 3 shards populated</li>
+              <li><strong>Test 6:</strong> No Duplication — every member on exactly 1 shard</li>
+            </ul>
+            <div class="tech-tags"><span class="tag purple">Docker</span><span class="tag purple">3 MySQL Nodes</span><span class="tag purple">phpMyAdmin</span></div>
+          </div>
+        </div>
+        <div class="shard-grid">
+          <div class="shard-node"><div class="shard-num">0</div><div class="shard-port">Port 3307</div><div class="shard-count">5 members · 7 sales</div></div>
+          <div class="shard-node"><div class="shard-num" style="color:var(--accent2)">1</div><div class="shard-port">Port 3308</div><div class="shard-count">12 members · 17 sales</div></div>
+          <div class="shard-node"><div class="shard-num" style="color:var(--accent3)">2</div><div class="shard-port">Port 3309</div><div class="shard-count">3 members · 3 sales</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="section-divider"/>
+
+<section id="demo">
+  <div class="section-title"><h2>Application Preview</h2><p>Explore how the ShopStop web application looks and works across each module.</p></div>
+  <div class="demo-note">
+    <span>ℹ️</span>
+    <div><strong>Running locally:</strong> ShopStop is a Flask app requiring a local MySQL server. Clone the repo, load <code>shopstop.sql</code>, install requirements, and run <code>python run.py</code>. See README for full steps.</div>
+  </div>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('login')">Login Page</button>
+    <button class="tab-btn" onclick="switchTab('dashboard')">Dashboard</button>
+    <button class="tab-btn" onclick="switchTab('sharding')">Shard Status</button>
+  </div>
+
+  <div class="tab-pane active" id="tab-login">
+    <div class="mock-window">
+      <div class="mock-toolbar">
+        <div class="mock-dot" style="background:#ff5f57"></div>
+        <div class="mock-dot" style="background:#febc2e"></div>
+        <div class="mock-dot" style="background:#28c840"></div>
+        <div class="mock-bar">localhost:5000/login-page</div>
+      </div>
+      <div class="login-mock">
+        <div class="login-side">
+          <div style="font-size:40px;margin-bottom:16px">🛒</div>
+          <div class="login-side-brand">ShopStop<br>Outlet System</div>
+          <div class="login-side-sub">CS 432 · IIT Gandhinagar · 2026</div>
+        </div>
+        <div class="login-main">
+          <h3>Welcome back</h3>
+          <p>Sign in to access the outlet management dashboard</p>
+          <div class="form-group"><label class="form-label">USERNAME</label><input class="form-input" value="admin" readonly/></div>
+          <div class="form-group"><label class="form-label">PASSWORD</label><input class="form-input" type="password" value="admin123" readonly/></div>
+          <button class="mock-btn">Sign In →</button>
+          <div class="creds-hint">
+            <p>TEST ACCOUNTS</p>
+            <div class="cred-row"><code>admin</code> / <code>admin123</code><span class="cred-role">— Full admin access</span></div>
+            <div class="cred-row"><code>rajesh</code> / <code>user123</code><span class="cred-role">— Regular user</span></div>
+            <div class="cred-row"><code>priya</code> / <code>user123</code><span class="cred-role">— Regular user</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-pane" id="tab-dashboard">
+    <div class="mock-window">
+      <div class="mock-toolbar">
+        <div class="mock-dot" style="background:#ff5f57"></div>
+        <div class="mock-dot" style="background:#febc2e"></div>
+        <div class="mock-dot" style="background:#28c840"></div>
+        <div class="mock-bar">localhost:5000/dashboard</div>
+      </div>
+      <div class="dash-mock">
+        <div class="dash-sidebar">
+          <div class="dash-brand"><div class="dash-brand-icon">🛒</div><div class="dash-brand-name">ShopStop</div></div>
+          <div class="dash-nav-item active">📊 Overview</div>
+          <div class="dash-nav-item">👥 Members</div>
+          <div class="dash-nav-item">📦 Products</div>
+          <div class="dash-nav-item">💰 Sales</div>
+          <div class="dash-nav-item">👔 Employees</div>
+          <div class="dash-nav-item">🏭 Suppliers</div>
+          <div class="dash-nav-item">🔀 Shards</div>
+        </div>
+        <div class="dash-main">
+          <div class="dash-topbar">Overview</div>
+          <div class="dash-stats">
+            <div class="dash-stat"><div class="dash-stat-val ds1">20</div><div class="dash-stat-label">Members</div></div>
+            <div class="dash-stat"><div class="dash-stat-val ds2">₹48.2k</div><div class="dash-stat-label">Revenue</div></div>
+            <div class="dash-stat"><div class="dash-stat-val ds3">27</div><div class="dash-stat-label">Sales</div></div>
+            <div class="dash-stat"><div class="dash-stat-val ds4">142</div><div class="dash-stat-label">Products</div></div>
+          </div>
+          <div class="dash-table-wrap">
+            <div class="dash-table-head">Recent Members</div>
+            <table class="dash-table">
+              <tr><th>ID</th><th>Name</th><th>Tier</th><th>Points</th></tr>
+              <tr><td><span class="dash-pid">MEM001</span></td><td style="color:#e2e8f0">Arjun Sharma</td><td><span style="font-size:10px;background:rgba(245,158,11,.12);color:#fbbf24;padding:2px 8px;border-radius:10px;font-weight:700">GOLD</span></td><td>1240</td></tr>
+              <tr><td><span class="dash-pid">MEM002</span></td><td style="color:#e2e8f0">Priya Nair</td><td><span style="font-size:10px;background:rgba(100,116,139,.12);color:#94a3b8;padding:2px 8px;border-radius:10px;font-weight:700">SILVER</span></td><td>340</td></tr>
+              <tr><td><span class="dash-pid">MEM003</span></td><td style="color:#e2e8f0">Raj Patel</td><td><span style="font-size:10px;background:rgba(99,102,241,.12);color:#818cf8;padding:2px 8px;border-radius:10px;font-weight:700">PLATINUM</span></td><td>4800</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-pane" id="tab-sharding">
+    <div class="mock-window">
+      <div class="mock-toolbar">
+        <div class="mock-dot" style="background:#ff5f57"></div>
+        <div class="mock-dot" style="background:#febc2e"></div>
+        <div class="mock-dot" style="background:#28c840"></div>
+        <div class="mock-bar">localhost:5000/api/shards/status</div>
+      </div>
+      <div class="shard-mock-body">
+        <h3>Shard Status — Task 4</h3>
+        <p>Live shard topology across 3 remote MySQL Docker nodes (requires IITGN network)</p>
+        <div class="shard-visual">
+          <div class="sv-box"><div class="sv-label">CLIENT</div><div class="sv-val">Flask App</div><div class="sv-port">:5000</div></div>
+          <div class="sv-arrow">→</div>
+          <div class="sv-box"><div class="sv-label">ROUTER</div><div class="sv-val" style="font-size:11px;color:var(--accent4)">MD5(MemberID) % 3</div><div class="sv-port">shard_router.py</div></div>
+          <div class="sv-arrow">→</div>
+          <div class="sv-box"><div class="sv-label">SHARD 0</div><div class="sv-val" style="color:var(--accent)">5 members</div><div class="sv-port">:3307</div></div>
+          <div class="sv-arrow">·</div>
+          <div class="sv-box"><div class="sv-label">SHARD 1</div><div class="sv-val" style="color:var(--accent2)">12 members</div><div class="sv-port">:3308</div></div>
+          <div class="sv-arrow">·</div>
+          <div class="sv-box"><div class="sv-label">SHARD 2</div><div class="sv-val" style="color:var(--accent3)">3 members</div><div class="sv-port">:3309</div></div>
+        </div>
+        <div class="distrib-row"><span class="distrib-label">Shard 0</span><div class="distrib-fill"><div class="distrib-bar-inner" style="width:25%;background:var(--accent)"></div></div><span class="distrib-count">5 / 20</span></div>
+        <div class="distrib-row"><span class="distrib-label">Shard 1</span><div class="distrib-fill"><div class="distrib-bar-inner" style="width:60%;background:var(--accent2)"></div></div><span class="distrib-count">12 / 20</span></div>
+        <div class="distrib-row"><span class="distrib-label">Shard 2</span><div class="distrib-fill"><div class="distrib-bar-inner" style="width:15%;background:var(--accent3)"></div></div><span class="distrib-count">3 / 20</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider"/>
+
+<section id="schema">
+  <div class="section-title"><h2>Database Schema</h2><p>Nine tables modelling a complete retail operation.</p></div>
+  <div class="schema-grid">
+    <div class="schema-table"><div class="schema-table-head"><span>👤</span> Member</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">MemberID</span><span class="schema-field-key key-pk">PK</span></div><div class="schema-field"><span class="schema-field-name">Name</span></div><div class="schema-field"><span class="schema-field-name">Tier</span></div><div class="schema-field"><span class="schema-field-name">LoyaltyPoints</span></div><div class="schema-field"><span class="schema-field-name">shard_id</span><span class="schema-field-key key-idx">IDX</span></div></div></div>
+    <div class="schema-table"><div class="schema-table-head"><span>👔</span> Employee</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">EmployeeID</span><span class="schema-field-key key-pk">PK</span></div><div class="schema-field"><span class="schema-field-name">ManagerID</span><span class="schema-field-key key-fk">FK→self</span></div><div class="schema-field"><span class="schema-field-name">Name</span></div><div class="schema-field"><span class="schema-field-name">Salary</span></div></div></div>
+    <div class="schema-table"><div class="schema-table-head"><span>📦</span> Product</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">ProductID</span><span class="schema-field-key key-pk">PK</span></div><div class="schema-field"><span class="schema-field-name">CategoryID</span><span class="schema-field-key key-fk">FK</span></div><div class="schema-field"><span class="schema-field-name">StockQty</span></div><div class="schema-field"><span class="schema-field-name">ReorderLevel</span></div></div></div>
+    <div class="schema-table"><div class="schema-table-head"><span>💰</span> Sale</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">SaleID</span><span class="schema-field-key key-pk">PK</span></div><div class="schema-field"><span class="schema-field-name">MemberID</span><span class="schema-field-key key-fk">FK</span></div><div class="schema-field"><span class="schema-field-name">FinalAmount</span></div><div class="schema-field"><span class="schema-field-name">PaymentMethod</span></div></div></div>
+    <div class="schema-table"><div class="schema-table-head"><span>🧾</span> SaleItem</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">SaleID</span><span class="schema-field-key key-fk">FK</span></div><div class="schema-field"><span class="schema-field-name">ProductID</span><span class="schema-field-key key-fk">FK</span></div><div class="schema-field"><span class="schema-field-name">Quantity</span></div><div class="schema-field"><span class="schema-field-name">UnitPrice</span></div></div></div>
+    <div class="schema-table"><div class="schema-table-head"><span>🏭</span> Supplier</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">SupplierID</span><span class="schema-field-key key-pk">PK</span></div><div class="schema-field"><span class="schema-field-name">Category</span></div><div class="schema-field"><span class="schema-field-name">Rating</span></div></div></div>
+    <div class="schema-table"><div class="schema-table-head"><span>🗂️</span> Category</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">CategoryID</span><span class="schema-field-key key-pk">PK</span></div><div class="schema-field"><span class="schema-field-name">ParentCategoryID</span><span class="schema-field-key key-fk">FK→self</span></div><div class="schema-field"><span class="schema-field-name">Name</span></div></div></div>
+    <div class="schema-table"><div class="schema-table-head"><span>📋</span> PurchaseOrder</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">OrderID</span><span class="schema-field-key key-pk">PK</span></div><div class="schema-field"><span class="schema-field-name">SupplierID</span><span class="schema-field-key key-fk">FK</span></div><div class="schema-field"><span class="schema-field-name">Status</span></div></div></div>
+    <div class="schema-table"><div class="schema-table-head"><span>📌</span> PurchaseOrderItem</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">OrderID</span><span class="schema-field-key key-fk">FK</span></div><div class="schema-field"><span class="schema-field-name">ProductID</span><span class="schema-field-key key-fk">FK</span></div><div class="schema-field"><span class="schema-field-name">Quantity</span></div><div class="schema-field"><span class="schema-field-name">UnitPrice</span></div></div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-brand">ShopStop.</div>
+  <p>CS 432 Databases · IIT Gandhinagar · 2026 · Track 1 · Group 15 — Nexus</p>
+  <div class="f-links"><a href="#tasks">Tasks</a><a href="#demo">Demo</a><a href="#schema">Schema</a><a href="https://github.com" target="_blank">GitHub</a></div>
+  <div class="f-copy">Built with Flask, MySQL, Python — progressively from schema to sharding.</div>
+</footer>
+
+<script>
+function switchTab(tab){
+  const tabs=['login','dashboard','sharding'];
+  document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active',tabs[i]===tab));
+  document.querySelectorAll('.tab-pane').forEach(p=>p.classList.toggle('active',p.id==='tab-'+tab));
+}
+</script>
+</body>
+</html>
