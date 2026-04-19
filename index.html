@@ -441,10 +441,10 @@
     <div><strong>Running locally:</strong> ShopStop is a Flask + MySQL app. Clone the repo, load <code>shopstop.sql</code>, install requirements, and run <code>python run.py</code>. See README for full steps. Must be on <strong>IITGN network</strong> for Task 4 shards.</div>
   </div>
   <div class="tabs">
-    <button class="tab-btn active" onclick="switchTab('login')">🔐 Login Page</button>
-    <button class="tab-btn" onclick="switchTab('admin')">🛡️ Admin Dashboard</button>
-    <button class="tab-btn" onclick="switchTab('member')">👤 Member Dashboard</button>
-    <button class="tab-btn" onclick="switchTab('sharding')">🔀 Shard Status</button>
+    <button class="tab-btn active" onclick="switchTab('login')">Login Page</button>
+    <button class="tab-btn" onclick="switchTab('admin')">Admin Dashboard</button>
+    <button class="tab-btn" onclick="switchTab('member')">Member Dashboard</button>
+    <button class="tab-btn" onclick="switchTab('sharding')">Shard Status</button>
   </div>
 
   <!-- LOGIN -->
@@ -463,7 +463,7 @@
         <div class="login-wrap">
           <div class="login-left">
             <div class="login-logo-row">
-              <div class="login-logo-box">🛒</div>
+              <div class="login-logo-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
               <span class="login-logo-name">ShopStop</span>
             </div>
             <div class="login-left-mid">
@@ -471,9 +471,9 @@
               <p>One integrated system for stock, sales, suppliers, members and staff — built for modern campus outlets.</p>
             </div>
             <div class="login-feats">
-              <div class="login-feat"><div class="login-feat-icon" style="background:rgba(99,102,241,0.15)">🗄️</div>MySQL + B+ Tree engine</div>
-              <div class="login-feat"><div class="login-feat-icon" style="background:rgba(16,185,129,0.15)">🔐</div>JWT auth · RBAC · Audit log</div>
-              <div class="login-feat"><div class="login-feat-icon" style="background:rgba(245,158,11,0.15)">🔀</div>Horizontally sharded across 3 nodes</div>
+              <div class="login-feat"><div class="login-feat-icon" style="background:rgba(99,102,241,0.15)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>MySQL + B+ Tree engine</div>
+              <div class="login-feat"><div class="login-feat-icon" style="background:rgba(16,185,129,0.15)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>JWT auth · RBAC · Audit log</div>
+              <div class="login-feat"><div class="login-feat-icon" style="background:rgba(245,158,11,0.15)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div>Horizontally sharded across 3 nodes</div>
             </div>
           </div>
           <div class="login-right">
@@ -506,20 +506,20 @@
       <div class="admin-mock">
         <div class="admin-sidebar">
           <div class="admin-sidebar-brand">
-            <div class="admin-brand-icon">🛒</div>
+            <div class="admin-brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
             <div><div class="admin-brand-text">ShopStop</div><div class="admin-brand-sub">Outlet Management</div></div>
           </div>
           <div class="admin-nav-section">Main Menu</div>
-          <div class="admin-nav-item active">≡ Overview</div>
-          <div class="admin-nav-item">📦 Products</div>
-          <div class="admin-nav-item">👥 Members</div>
-          <div class="admin-nav-item">👔 Employees</div>
-          <div class="admin-nav-item">🧾 Billing Counter</div>
-          <div class="admin-nav-item">📊 Sales History</div>
-          <div class="admin-nav-item">🔄 Purchase Orders</div>
+          <div class="admin-nav-item active"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg> Overview</div>
+          <div class="admin-nav-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg> Products</div>
+          <div class="admin-nav-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Members</div>
+          <div class="admin-nav-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Employees</div>
+          <div class="admin-nav-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg> Billing Counter</div>
+          <div class="admin-nav-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Sales History</div>
+          <div class="admin-nav-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8"/><polyline points="7.5 4.21 12 6.81 16.5 4.21"/><polyline points="7.5 19.79 7.5 14.6 3 12"/><polyline points="21 12 16.5 14.6 16.5 19.79"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg> Purchase Orders</div>
           <div class="admin-account-section">
             <div class="admin-user-card"><div class="admin-user-name">admin</div><div class="admin-badge">ADMIN</div></div>
-            <button class="admin-switch-btn">🌙 Switch to Dark</button>
+            <button class="admin-switch-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Switch to Dark</button>
           </div>
         </div>
         <div class="admin-main">
@@ -529,15 +529,15 @@
           </div>
           <div class="admin-content">
             <div class="admin-stats">
-              <div class="admin-stat"><div class="admin-stat-glow" style="background:linear-gradient(90deg,transparent,#6366f1,transparent)"></div><span class="admin-stat-icon">📦</span><div class="admin-stat-label">Products</div><div class="admin-stat-val as1">28</div></div>
-              <div class="admin-stat"><div class="admin-stat-glow" style="background:linear-gradient(90deg,transparent,#10b981,transparent)"></div><span class="admin-stat-icon">👥</span><div class="admin-stat-label">Members</div><div class="admin-stat-val as2">20</div></div>
-              <div class="admin-stat"><div class="admin-stat-glow" style="background:linear-gradient(90deg,transparent,#f59e0b,transparent)"></div><span class="admin-stat-icon">📋</span><div class="admin-stat-label">Sales</div><div class="admin-stat-val as3">27</div></div>
-              <div class="admin-stat"><div class="admin-stat-glow" style="background:linear-gradient(90deg,transparent,#ef4444,transparent)"></div><span class="admin-stat-icon">🚚</span><div class="admin-stat-label">Pending Orders</div><div class="admin-stat-val as4">4</div></div>
-              <div class="admin-stat"><div class="admin-stat-glow" style="background:linear-gradient(90deg,transparent,#3b82f6,transparent)"></div><span class="admin-stat-icon">💼</span><div class="admin-stat-label">Employees</div><div class="admin-stat-val as5">15</div></div>
+              <div class="admin-stat"><div class="admin-stat-glow" style="background:linear-gradient(90deg,transparent,#6366f1,transparent)"></div><span class="admin-stat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span><div class="admin-stat-label">Products</div><div class="admin-stat-val as1">28</div></div>
+              <div class="admin-stat"><div class="admin-stat-glow" style="background:linear-gradient(90deg,transparent,#10b981,transparent)"></div><span class="admin-stat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><div class="admin-stat-label">Members</div><div class="admin-stat-val as2">20</div></div>
+              <div class="admin-stat"><div class="admin-stat-glow" style="background:linear-gradient(90deg,transparent,#f59e0b,transparent)"></div><span class="admin-stat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span><div class="admin-stat-label">Sales</div><div class="admin-stat-val as3">27</div></div>
+              <div class="admin-stat"><div class="admin-stat-glow" style="background:linear-gradient(90deg,transparent,#ef4444,transparent)"></div><span class="admin-stat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span><div class="admin-stat-label">Pending Orders</div><div class="admin-stat-val as4">4</div></div>
+              <div class="admin-stat"><div class="admin-stat-glow" style="background:linear-gradient(90deg,transparent,#3b82f6,transparent)"></div><span class="admin-stat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span><div class="admin-stat-label">Employees</div><div class="admin-stat-val as5">15</div></div>
             </div>
             <div class="admin-alert">
               <div class="admin-alert-head">
-                <div class="admin-alert-title">⚠️ Low Stock Alert</div>
+                <div class="admin-alert-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Low Stock Alert</div>
                 <div class="admin-alert-badge">2 items need restock</div>
               </div>
               <table class="admin-table">
@@ -564,33 +564,33 @@
       <div class="member-mock">
         <div class="member-sidebar">
           <div class="admin-sidebar-brand">
-            <div class="admin-brand-icon">🛒</div>
+            <div class="admin-brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
             <div><div class="admin-brand-text">ShopStop</div><div class="admin-brand-sub">Outlet Management</div></div>
           </div>
           <div class="admin-nav-section">My Account</div>
-          <div class="admin-nav-item active">🏠 My Dashboard</div>
-          <div class="admin-nav-item">🛍️ Browse &amp; Shop</div>
-          <div class="admin-nav-item">🛒 View Cart and Buy</div>
-          <div class="admin-nav-item">📋 My Purchases</div>
-          <div class="admin-nav-item">👤 My Profile</div>
+          <div class="admin-nav-item active"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> My Dashboard</div>
+          <div class="admin-nav-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg> Browse &amp; Shop</div>
+          <div class="admin-nav-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> View Cart and Buy</div>
+          <div class="admin-nav-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> My Purchases</div>
+          <div class="admin-nav-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> My Profile</div>
           <div class="admin-nav-section">More</div>
-          <div class="admin-nav-item">📄 Full Portfolio</div>
+          <div class="admin-nav-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Full Portfolio</div>
           <div class="admin-account-section">
             <div class="admin-user-card"><div class="admin-user-name">Rajesh Kumar</div><div class="admin-badge" style="background:#10b981">MEMBER</div></div>
-            <button class="admin-switch-btn">🌙 Switch to Dark</button>
+            <button class="admin-switch-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Switch to Dark</button>
           </div>
         </div>
         <div class="member-main">
           <div class="member-topbar">
             <div><div class="member-topbar-title">My Dashboard</div><div class="member-topbar-sub">Your ShopStop account at a glance</div></div>
             <div style="display:flex;align-items:center;gap:10px">
-              <div class="member-topbar-cart">🛒 Cart: 0 · Rs.0</div>
+              <div class="member-topbar-cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Cart: 0 · Rs.0</div>
               <div class="admin-topbar-badge">CS 432 · Group 15 · IITGN</div>
             </div>
           </div>
           <div class="member-content">
             <div class="member-hero-card">
-              <div class="member-avatar">👤</div>
+              <div class="member-avatar"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
               <div class="member-hero-info">
                 <div class="member-hero-name">Rajesh Kumar</div>
                 <div class="member-hero-email">rajesh.kumar@email.com</div>
@@ -607,14 +607,14 @@
             </div>
             <div class="member-grid">
               <div class="member-card">
-                <div class="member-card-head"><div class="member-card-head-icon" style="background:#eef2ff">📋</div>My Recent Purchases</div>
+                <div class="member-card-head"><div class="member-card-head-icon" style="background:#eef2ff"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>My Recent Purchases</div>
                 <div class="purchase-item"><div><div class="purchase-id">SAL027</div><div class="purchase-amt">Rs.500.00</div><div class="purchase-meta">Fri, 03 Apr</div></div><span class="pay-badge pay-cash">● Cash</span></div>
                 <div class="purchase-item"><div><div class="purchase-id">SAL026</div><div class="purchase-amt">Rs.1696.00</div><div class="purchase-meta">Sun, 22 Mar</div></div><span class="pay-badge pay-upi">● UPI</span></div>
                 <div class="purchase-item"><div><div class="purchase-id">SAL025</div><div class="purchase-amt">Rs.2799.00</div><div class="purchase-meta">Sun, 22 Mar</div></div><span class="pay-badge pay-upi">● UPI</span></div>
                 <div class="purchase-item"><div><div class="purchase-id">SAL024</div><div class="purchase-amt">Rs.1334.00</div><div class="purchase-meta">Sun, 22 Mar</div></div><span class="pay-badge pay-upi">● UPI</span></div>
               </div>
               <div class="member-card">
-                <div class="member-card-head"><div class="member-card-head-icon" style="background:#fff7ed">🎁</div>Available Promotions</div>
+                <div class="member-card-head"><div class="member-card-head-icon" style="background:#fff7ed"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>Available Promotions</div>
                 <div class="promo-item"><span class="promo-disc">20% off</span><div class="promo-name">Electronics Bonanza</div><div class="promo-meta">Ends Thu, 31 Dec</div></div>
                 <div class="promo-item"><span class="promo-disc">18% off</span><div class="promo-name">Organic Week</div><div class="promo-meta">Ends Thu, 31 Dec</div></div>
                 <div class="promo-item"><span class="promo-disc">15% off</span><div class="promo-name">Valentine Special</div><div class="promo-meta">Ends Thu, 31 Dec</div></div>
@@ -665,15 +665,15 @@
 <section id="schema">
   <div class="section-title"><h2>Database Schema</h2><p>Nine tables modelling a complete retail operation — members, stock, sales, suppliers, and staff.</p></div>
   <div class="schema-grid">
-    <div class="schema-table"><div class="schema-table-head"><span>👤</span> Member</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">MemberID</span><span class="schema-field-key key-pk">PK</span></div><div class="schema-field"><span class="schema-field-name">Name, Email</span></div><div class="schema-field"><span class="schema-field-name">Tier (Silver/Gold/Platinum)</span></div><div class="schema-field"><span class="schema-field-name">LoyaltyPoints</span></div><div class="schema-field"><span class="schema-field-name">shard_id</span><span class="schema-field-key key-idx">IDX</span></div></div></div>
-    <div class="schema-table"><div class="schema-table-head"><span>👔</span> Employee</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">EmployeeID</span><span class="schema-field-key key-pk">PK</span></div><div class="schema-field"><span class="schema-field-name">ManagerID</span><span class="schema-field-key key-fk">FK→self</span></div><div class="schema-field"><span class="schema-field-name">Name, Role</span></div><div class="schema-field"><span class="schema-field-name">Salary (> 0)</span></div></div></div>
-    <div class="schema-table"><div class="schema-table-head"><span>📦</span> Product</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">ProductID</span><span class="schema-field-key key-pk">PK</span></div><div class="schema-field"><span class="schema-field-name">CategoryID</span><span class="schema-field-key key-fk">FK</span></div><div class="schema-field"><span class="schema-field-name">StockQty, ReorderLevel</span></div><div class="schema-field"><span class="schema-field-name">ExpiryDate, Barcode</span></div></div></div>
-    <div class="schema-table"><div class="schema-table-head"><span>💰</span> Sale</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">SaleID</span><span class="schema-field-key key-pk">PK</span></div><div class="schema-field"><span class="schema-field-name">MemberID</span><span class="schema-field-key key-fk">FK</span></div><div class="schema-field"><span class="schema-field-name">FinalAmount (= Total - Discount)</span></div><div class="schema-field"><span class="schema-field-name">PaymentMethod</span></div></div></div>
-    <div class="schema-table"><div class="schema-table-head"><span>🧾</span> SaleItem</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">SaleID</span><span class="schema-field-key key-fk">FK</span></div><div class="schema-field"><span class="schema-field-name">ProductID</span><span class="schema-field-key key-fk">FK</span></div><div class="schema-field"><span class="schema-field-name">Quantity, UnitPrice</span></div></div></div>
-    <div class="schema-table"><div class="schema-table-head"><span>🏭</span> Supplier</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">SupplierID</span><span class="schema-field-key key-pk">PK</span></div><div class="schema-field"><span class="schema-field-name">Category, Rating</span></div><div class="schema-field"><span class="schema-field-name">Contact, Address</span></div></div></div>
-    <div class="schema-table"><div class="schema-table-head"><span>🗂️</span> Category</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">CategoryID</span><span class="schema-field-key key-pk">PK</span></div><div class="schema-field"><span class="schema-field-name">ParentCategoryID</span><span class="schema-field-key key-fk">FK→self</span></div><div class="schema-field"><span class="schema-field-name">Name</span></div></div></div>
-    <div class="schema-table"><div class="schema-table-head"><span>📋</span> PurchaseOrder</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">OrderID</span><span class="schema-field-key key-pk">PK</span></div><div class="schema-field"><span class="schema-field-name">SupplierID</span><span class="schema-field-key key-fk">FK</span></div><div class="schema-field"><span class="schema-field-name">Status, OrderDate</span></div></div></div>
-    <div class="schema-table"><div class="schema-table-head"><span>📌</span> PurchaseOrderItem</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">OrderID</span><span class="schema-field-key key-fk">FK</span></div><div class="schema-field"><span class="schema-field-name">ProductID</span><span class="schema-field-key key-fk">FK</span></div><div class="schema-field"><span class="schema-field-name">Quantity, UnitPrice</span></div></div></div>
+    <div class="schema-table"><div class="schema-table-head"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg> Member</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">MemberID</span><span class="schema-field-key key-pk">PK</span></div><div class="schema-field"><span class="schema-field-name">Name, Email</span></div><div class="schema-field"><span class="schema-field-name">Tier (Silver/Gold/Platinum)</span></div><div class="schema-field"><span class="schema-field-name">LoyaltyPoints</span></div><div class="schema-field"><span class="schema-field-name">shard_id</span><span class="schema-field-key key-idx">IDX</span></div></div></div>
+    <div class="schema-table"><div class="schema-table-head"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Employee</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">EmployeeID</span><span class="schema-field-key key-pk">PK</span></div><div class="schema-field"><span class="schema-field-name">ManagerID</span><span class="schema-field-key key-fk">FK→self</span></div><div class="schema-field"><span class="schema-field-name">Name, Role</span></div><div class="schema-field"><span class="schema-field-name">Salary (> 0)</span></div></div></div>
+    <div class="schema-table"><div class="schema-table-head"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/></svg> Product</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">ProductID</span><span class="schema-field-key key-pk">PK</span></div><div class="schema-field"><span class="schema-field-name">CategoryID</span><span class="schema-field-key key-fk">FK</span></div><div class="schema-field"><span class="schema-field-name">StockQty, ReorderLevel</span></div><div class="schema-field"><span class="schema-field-name">ExpiryDate, Barcode</span></div></div></div>
+    <div class="schema-table"><div class="schema-table-head"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Sale</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">SaleID</span><span class="schema-field-key key-pk">PK</span></div><div class="schema-field"><span class="schema-field-name">MemberID</span><span class="schema-field-key key-fk">FK</span></div><div class="schema-field"><span class="schema-field-name">FinalAmount (= Total - Discount)</span></div><div class="schema-field"><span class="schema-field-name">PaymentMethod</span></div></div></div>
+    <div class="schema-table"><div class="schema-table-head"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> SaleItem</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">SaleID</span><span class="schema-field-key key-fk">FK</span></div><div class="schema-field"><span class="schema-field-name">ProductID</span><span class="schema-field-key key-fk">FK</span></div><div class="schema-field"><span class="schema-field-name">Quantity, UnitPrice</span></div></div></div>
+    <div class="schema-table"><div class="schema-table-head"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> Supplier</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">SupplierID</span><span class="schema-field-key key-pk">PK</span></div><div class="schema-field"><span class="schema-field-name">Category, Rating</span></div><div class="schema-field"><span class="schema-field-name">Contact, Address</span></div></div></div>
+    <div class="schema-table"><div class="schema-table-head"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg> Category</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">CategoryID</span><span class="schema-field-key key-pk">PK</span></div><div class="schema-field"><span class="schema-field-name">ParentCategoryID</span><span class="schema-field-key key-fk">FK→self</span></div><div class="schema-field"><span class="schema-field-name">Name</span></div></div></div>
+    <div class="schema-table"><div class="schema-table-head"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> PurchaseOrder</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">OrderID</span><span class="schema-field-key key-pk">PK</span></div><div class="schema-field"><span class="schema-field-name">SupplierID</span><span class="schema-field-key key-fk">FK</span></div><div class="schema-field"><span class="schema-field-name">Status, OrderDate</span></div></div></div>
+    <div class="schema-table"><div class="schema-table-head"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/></svg> PurchaseOrderItem</div><div class="schema-fields"><div class="schema-field"><span class="schema-field-name">OrderID</span><span class="schema-field-key key-fk">FK</span></div><div class="schema-field"><span class="schema-field-name">ProductID</span><span class="schema-field-key key-fk">FK</span></div><div class="schema-field"><span class="schema-field-name">Quantity, UnitPrice</span></div></div></div>
   </div>
 </section>
 
@@ -683,14 +683,14 @@
 <section id="stack">
   <div class="section-title"><h2>Tech Stack</h2><p>Everything used across the four assignments.</p></div>
   <div class="stack-grid">
-    <div class="stack-card"><div class="stack-card-icon">🗄️</div><div class="stack-card-name">MySQL 8.0</div><div class="stack-card-desc">Core relational database, schema constraints, indexes, and sharded nodes via Docker</div></div>
-    <div class="stack-card"><div class="stack-card-icon">🌐</div><div class="stack-card-name">Flask</div><div class="stack-card-desc">REST API backend with JWT auth, bcrypt hashing, RBAC, and security audit logging</div></div>
-    <div class="stack-card"><div class="stack-card-icon">🌳</div><div class="stack-card-name">Python (B+ Tree)</div><div class="stack-card-desc">Custom B+ Tree engine with WAL, 2PL locking, snapshot rollback, and crash recovery</div></div>
-    <div class="stack-card"><div class="stack-card-icon">🔀</div><div class="stack-card-name">Sharding</div><div class="stack-card-desc">MD5 hash-based shard router across 3 MySQL Docker containers with co-location strategy</div></div>
-    <div class="stack-card"><div class="stack-card-icon">📓</div><div class="stack-card-name">Jupyter</div><div class="stack-card-desc">B+ Tree demos, tree visualisations with Graphviz, SQL index benchmarking notebooks</div></div>
-    <div class="stack-card"><div class="stack-card-icon">🧪</div><div class="stack-card-name">Locust</div><div class="stack-card-desc">Load testing, concurrent user simulation, race condition and failure simulation tests</div></div>
-    <div class="stack-card"><div class="stack-card-icon">🔐</div><div class="stack-card-name">PyJWT + bcrypt</div><div class="stack-card-desc">HS256 JWT tokens, bcrypt password hashing, per-request audit log entries</div></div>
-    <div class="stack-card"><div class="stack-card-icon">🐳</div><div class="stack-card-name">Docker</div><div class="stack-card-desc">Three isolated MySQL containers for sharding demo with phpMyAdmin on each node</div></div>
+    <div class="stack-card"><div class="stack-card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2c5f8a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div><div class="stack-card-name">MySQL 8.0</div><div class="stack-card-desc">Core relational database, schema constraints, indexes, and sharded nodes via Docker</div></div>
+    <div class="stack-card"><div class="stack-card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d4874e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div class="stack-card-name">Flask</div><div class="stack-card-desc">REST API backend with JWT auth, bcrypt hashing, RBAC, and security audit logging</div></div>
+    <div class="stack-card"><div class="stack-card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4a8c6f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><div class="stack-card-name">Python (B+ Tree)</div><div class="stack-card-desc">Custom B+ Tree engine with WAL, 2PL locking, snapshot rollback, and crash recovery</div></div>
+    <div class="stack-card"><div class="stack-card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8b4a8c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div><div class="stack-card-name">Sharding</div><div class="stack-card-desc">MD5 hash-based shard router across 3 MySQL Docker containers with co-location strategy</div></div>
+    <div class="stack-card"><div class="stack-card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2c5f8a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><div class="stack-card-name">Jupyter</div><div class="stack-card-desc">B+ Tree demos, tree visualisations with Graphviz, SQL index benchmarking notebooks</div></div>
+    <div class="stack-card"><div class="stack-card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4a8c6f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="stack-card-name">Locust</div><div class="stack-card-desc">Load testing, concurrent user simulation, race condition and failure simulation tests</div></div>
+    <div class="stack-card"><div class="stack-card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d4874e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div class="stack-card-name">PyJWT + bcrypt</div><div class="stack-card-desc">HS256 JWT tokens, bcrypt password hashing, per-request audit log entries</div></div>
+    <div class="stack-card"><div class="stack-card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8b4a8c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="stack-card-name">Docker</div><div class="stack-card-desc">Three isolated MySQL containers for sharding demo with phpMyAdmin on each node</div></div>
   </div>
 </section>
 
